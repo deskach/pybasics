@@ -1,6 +1,7 @@
 check "Python developers toolkit" pluralsight course
 
-CHAPTER 2
+###########
+##CHAPTER 2
 
 //linux
 pip install virtualenvwrapper
@@ -24,42 +25,25 @@ from helloworld import app
 app.url_map
 ##^ will list all url mappings
 
-CHAPTER 3
+###########
+##CHAPTER 3
+
 {% extends "base.html" %} 
 ^Extends a base template, this must be the firest tag
 
 {% block content %}...{% endblock %}
 ^Defines a block that could be overriden by a child
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return (render_template('404.html'), 404)
+^Allows for user-friendly error handling
 
+app.run(debug=True)
+^Enables debugging
 
-wwww.initializr.com
-<a href="{{ url_for('index') }}"><h1 class="title">Thermos</h1></a>
-
-{{code for #add.html}}
-{% extends "base.html" %}
-
-{% block title %}Add a url{%  endblock %}
-
-{% block content %}
-    <article>
-        <header><h1>Add a new URL</h1></header>
-        <section>
-            <form action="" method="post">
-                <p>
-                    Please enter your bookmark here:
-                    <input type="text" name="url" />
-                </p>
-                <p>
-                    <button type="submit">Submit</button>
-                </p>
-            </form>
-        </section>
-        <footer></footer>
-    </article>
-{% endblock %}
-
-{% block sidebar %}
-{% endblock %}
-{{end_code}}
-
+#Resources
+http://jinja.pocoo.org/
+http://www.initializr.com
+http://flask.pocoo.org/docs/quickstart/#url-building
+https://pypi.python.org/pypi/Flask-Bootstrap
