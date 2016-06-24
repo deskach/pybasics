@@ -48,6 +48,7 @@
     <Content Include="static\js\vendor\jquery-1.11.2.min.js" />
     <Content Include="static\js\vendor\modernizr-2.8.3-respond-1.4.2.min.js" />
     <Content Include="templates\404.html" />
+    <Content Include="templates\add.html" />
     <Content Include="templates\index.html" />
   </ItemGroup>
   <PropertyGroup>

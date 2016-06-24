@@ -25,3 +25,41 @@ app.url_map
 ##^ will list all url mappings
 
 CHAPTER 3
+{% extends "base.html" %} 
+^Extends a base template, this must be the firest tag
+
+{% block content %}...{% endblock %}
+^Defines a block that could be overriden by a child
+
+
+
+wwww.initializr.com
+<a href="{{ url_for('index') }}"><h1 class="title">Thermos</h1></a>
+
+{{code for #add.html}}
+{% extends "base.html" %}
+
+{% block title %}Add a url{%  endblock %}
+
+{% block content %}
+    <article>
+        <header><h1>Add a new URL</h1></header>
+        <section>
+            <form action="" method="post">
+                <p>
+                    Please enter your bookmark here:
+                    <input type="text" name="url" />
+                </p>
+                <p>
+                    <button type="submit">Submit</button>
+                </p>
+            </form>
+        </section>
+        <footer></footer>
+    </article>
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+{{end_code}}
+
