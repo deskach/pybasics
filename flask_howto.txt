@@ -1,0 +1,24 @@
+check Python developers toolkit pluralsight course
+
+//linux
+pip install virtualenvwrapper
+export environment variable to set up virtualenv location
+mkproject HelloWorld
+
+
+// Windows
+pip install virtualenv
+pip install virtualenvwrapper-win 
+mkvirtualenv HelloWorld
+mkdir HelloWorld
+cd HelloWorld
+setprojectdir .
+workon HelloWorld #run this to activate HelloWorld environment
+pip install Flask
+
+
+In console:
+from helloworld import app
+app.url_map
+##^ will list all url mappings
+
