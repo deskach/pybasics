@@ -23,6 +23,25 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="thermos.py" />
+    <Compile Include="__init__.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="static\" />
+    <Folder Include="static\css\" />
+    <Folder Include="static\img\" />
+    <Folder Include="static\js\" />
+    <Folder Include="static\js\vendor\" />
+    <Folder Include="templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="static\css\main.css" />
+    <Content Include="static\css\normalize.css" />
+    <Content Include="static\css\normalize.min.css" />
+    <Content Include="static\js\main.js" />
+    <Content Include="static\js\vendor\jquery-1.11.2.min.js" />
+    <Content Include="static\js\vendor\modernizr-2.8.3-respond-1.4.2.min.js" />
+    <Content Include="templates\404.html" />
+    <Content Include="templates\index.html" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
