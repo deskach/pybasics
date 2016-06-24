@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>0b2f995a-57dc-437c-bd41-6208af9e7343</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>pystudy.py</StartupFile>
+    <StartupFile>exercise.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,6 +22,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="exercise.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="pystudy.py" />
     <Compile Include="reader\compressed\bzipped.py">
       <SubType>Code</SubType>
