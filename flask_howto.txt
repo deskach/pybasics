@@ -1,4 +1,6 @@
-check Python developers toolkit pluralsight course
+check "Python developers toolkit" pluralsight course
+
+CHAPTER 2
 
 //linux
 pip install virtualenvwrapper
@@ -22,3 +24,4 @@ from helloworld import app
 app.url_map
 ##^ will list all url mappings
 
+CHAPTER 3
