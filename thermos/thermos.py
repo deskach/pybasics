@@ -12,9 +12,13 @@ bookmarks = []
 @app.route('/')
 @app.route('/index')
 def index():
+    def new_bookmarks(num):
+        return sorted(bookmarks, key=lambda bm: bm['date'], reverse=True)[:num]
+
     return render_template('index.html', 
                            title = "Thermos",
-                           user=User("Siarhei", "Kachanovich")
+                           user=User("Siarhei", "Kachanovich"),
+                           new_bookmarks=new_bookmarks(5)
                            )
 
 @app.errorhandler(404)
@@ -33,7 +37,7 @@ def add():
             "user": "reindert",
             "date": datetime.utcnow()
         })
-
+    
     if request.method == "POST":
         url = request.form['url'] # url here is the input's name'
         store_bookmark(url)
