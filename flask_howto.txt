@@ -95,4 +95,16 @@ db.session.commit()
 
 To query db run:
 User.query.get(1) #here 1 is the id of the user to be queried
+User.query.filter_by(username='reindert').all()
+
+class Bookmark(db.Model):
+    ...
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
+class User(db.Model):
+	...
+    bookmarks = db.relationship('Bookmark', backref='user', lazy='dynamic')
+^The above ForeignKey and backref declarations tell SQLAlchemy to create one-to-many relationships
+between User and Bookmark objects. Now each Bookmark has a user object and each User has a list of bookmarks
+
+
 

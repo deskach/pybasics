@@ -13,3 +13,4 @@ db = SQLAlchemy(app)    # this is imported in models.py
 
 import models
 import views
+#^ These are needed here to initialize Models only once (required by SQLALchemy)
