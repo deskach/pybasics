@@ -27,7 +27,7 @@ def add():
     if form.validate_on_submit():
         url = form.url.data
         description = form.description.data
-        bm = Bookmark(url=url, description=description)
+        bm = Bookmark(user=User.logged_in_user(), url=url, description=description)
         db.session.add(bm)
         db.session.commit()
         flash("stored url: '%s'" % url)

@@ -20,7 +20,7 @@
                     <ul>
                     {% for bm in new_bookmarks %}
                         <li>
-                            {{bm.user}} added 
+                            {{bm.user.username}} added 
                             <a href="{{bm.url}}">{{bm.description}}</a>
                         </li>
                     {% endfor %}

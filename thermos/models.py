@@ -10,6 +10,7 @@ class Bookmark(db.Model):
     # ^ here we pass a function not value because we want to make a call to the function every time
     #   a new bookmark object is created. Otherwise same value would have been used what we do not want.
     description = db.Column(db.String(300))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)
 
     @staticmethod
     def new_bookmarks(num):
@@ -23,6 +24,11 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True)
     email = db.Column(db.String(120), unique=True)
+    bookmarks = db.relationship('Bookmark', backref='user', lazy='dynamic')
+
+    @staticmethod
+    def logged_in_user():
+        return User.query.limit(1).first()
 
     def __repr__(self):
         return "<User '{}'>".format(self.username)

@@ -1,7 +1,9 @@
 #! /uar/bin/env python
 
-from thermos import app, db
 from flask_script import Manager, prompt_bool
+
+from thermos import app, db
+from models import User
 
 manager = Manager(app)
 
@@ -9,6 +11,10 @@ manager = Manager(app)
 def initdb():
     ''' Initializes the database'''
     db.create_all()
+    db.session.add(User(username='tolia', email="tolia@test.com"))
+    db.session.add(User(username='daryna', email="daryna@gmail.com"))
+    db.session.commit()
+
     print('Initialized the database')
 
 @manager.command
