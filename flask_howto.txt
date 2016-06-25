@@ -47,3 +47,17 @@ http://jinja.pocoo.org/
 http://www.initializr.com
 http://flask.pocoo.org/docs/quickstart/#url-building
 https://pypi.python.org/pypi/Flask-Bootstrap
+
+
+##########
+##CHAPTER 4
+Some attributes of the request objec: 
+form, args, cookies, headers, files, method
+There is also a session global flusk object.
+to use it one needs to configure Flask.secret_key
+
+Flask supports messages by means of flush()/get_flashed_messages()
+functions. A secret key can be generated using this command:
+    import os
+    os.urandom(24)
+
