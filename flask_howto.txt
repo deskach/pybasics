@@ -69,3 +69,30 @@ functions. A secret key can be generated using this command:
 
 {{ form.idden_tag() }} - needed for security in every form
 {{ form.url(class = "fancy" }} - this is how we can add classes to wtf forms
+
+https://flask-wtf.readthedocs.org
+http://wtforms.readthedocs.org
+
+
+###########
+## CHAPTER 5 - Persistance
+SqlAlchemy
+
+pip install flask-sqlalchemy
+from flask_sqlalchemy import SQLAlchemy
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'thermos.db')
+db = SQLAlchemy(app)    # this is imported in models.py 
+
+To create sql-lite database using models one need to run the following in python command-line
+from thermos.thermos import db
+from thermos.models import User,Bookmark
+db.create_all()
+
+To insert data run the following
+u = User('name', 'email')
+db.session.add(u)
+db.session.commit()
+
+To query db run:
+User.query.get(1) #here 1 is the id of the user to be queried
+
