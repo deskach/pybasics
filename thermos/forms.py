@@ -1,6 +1,6 @@
 from flask_wtf import Form
 from flask_wtf.html5 import URLField
-from wtforms.fields import StringField
+from wtforms.fields import StringField, PasswordField, BooleanField, SubmitField
 from wtforms.validators import DataRequired, url
 
 class BookmarkForm(Form):
@@ -19,3 +19,10 @@ class BookmarkForm(Form):
             self.description.data = self.url.data
 
         return True
+
+class LoginForm(Form):
+    username = StringField('Your Username:', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember_me = BooleanField('Keep me logged in')
+    submit = SubmitField('Log In')
+
