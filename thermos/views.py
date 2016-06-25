@@ -13,6 +13,11 @@ def index():
                            new_bookmarks=Bookmark.new_bookmarks(5)
                            )
 
+@app.route('/user/<username>') # hsere <username> becomes a parameter for the function
+def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    return render_template('user.html', user=user)
+
 @app.errorhandler(404)
 def page_not_found(e):
     return (render_template('404.html'), 404)
