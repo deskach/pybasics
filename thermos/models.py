@@ -1,7 +1,7 @@
 from datetime import datetime
-from thermos import db
 from sqlalchemy import desc
 
+from thermos import db 
 
 class Bookmark(db.Model):
     id = db.Column(db.Integer, primary_key=True)
