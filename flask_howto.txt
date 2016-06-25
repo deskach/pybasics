@@ -61,3 +61,11 @@ functions. A secret key can be generated using this command:
     import os
     os.urandom(24)
 
+{% if expression %} ... {% else %} .. {% endif %}
+{% elif %}
+{% for var in expression %} {% endfor %}
+{% with var = expression %} .. {% endwith %} 
+//^ this declares a variable which exists withing the scope of block
+
+{{ form.idden_tag() }} - needed for security in every form
+{{ form.url(class = "fancy" }} - this is how we can add classes to wtf forms

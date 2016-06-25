@@ -7,13 +7,35 @@
         <header><h1>Add a new URL</h1></header>
         <section>
             <form action="" method="post">
-                <p>
-                    Please enter your bookmark here:
-                    <input type="text" name="url" />
-                </p>
-                <p>
-                    <button type="submit">Submit</button>
-                </p>
+                {{form.hidden_tag()}} 
+                <!-- ^ this is needed for security (see CSRF) -->
+                <table>
+                    <tr class="error">
+                        <td>
+                            <ul>
+                                {% for error in form.url.errors %}
+                                    <li>{{ error }}</li>
+                                {% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+                    <tr {% if form.url.errors %} class="error" {% endif %} >
+                    <!-- ^ this is needed to handle errors returned by controller-->
+                        <td>
+                            <label for="url">Please enter your bookmark here:</label>
+                            {{form.url(size=50)}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="description">Add an optional description</label>
+                            {{form.description(size=50)}}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><button type="submit">Submit</button></td>
+                    </tr>
+                </table>
             </form>
         </section>
         <footer></footer>
