@@ -1,16 +1,20 @@
 import os
-from flask import Flask, render_template, url_for, request, redirect, flash
-from logging import DEBUG
+
+from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
+from flask_moment import Moment
+
+app = Flask(__name__)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-app = Flask(__name__)
-app.logger.setLevel(DEBUG)
-app.config['SECRET_KEY'] = '>\x8e\xaf}\x11`n\xd62\x8a\x98>a\x0b\xe1\x1d-V\x00\xa0^\xff[\xcb\xaa'
+
+# Configure database
+app.config['SECRET_KEY'] = '~t\x86\xc9\x1ew\x8bOcX\x85O\xb6\xa2\x11kL\xd1\xce\x7f\x14<y\x9e'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'thermos.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
-db = SQLAlchemy(app)    # this is imported in models.py 
+app.config['DEBUG'] = True
+db = SQLAlchemy(app)
 
 # Configure authentication
 login_manager = LoginManager()
@@ -18,6 +22,8 @@ login_manager.session_protection = "strong"
 login_manager.login_view = "login"
 login_manager.init_app(app)
 
+# for displaying timestamps
+moment = Moment(app)
+
 import models
 import views
-#^ These are needed here to initialize Models only once (required by SQLALchemy)

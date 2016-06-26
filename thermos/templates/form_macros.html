@@ -1,14 +1,10 @@
 {% macro render_field(field) %}
     <tr {% if field.errors %} class="error" {% endif %}>
-        <td>
-            <label for="{{field.name}}">{{ field.label }}</label>
-            {{ field(**kwargs)|safe }}
-            <!--^ this **kwargs allows the user of this macro to pass arguments to the filed like name, label, size etc.
-                    'safe' is a special jinjer filter telling it not to escape any characters in the output (like '<' - &lt; ) 
-            -->
-        </td>
+        <td>{{ field.label }}</td>
+        <td>{{ field(**kwargs)|safe }}</td>
     </tr>
     <tr class="error" >
+        <td></td>
         <td>
             <ul>
                 {% for error in field.errors %}
