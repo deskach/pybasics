@@ -7,6 +7,7 @@ from models import User
 
 manager = Manager(app)
 
+
 @manager.command
 def initdb():
     ''' Initializes the database'''
@@ -17,17 +18,25 @@ def initdb():
 
     print('Initialized the database')
 
+
 @manager.command
 def dropdb():
     '''Drops the database'''
-    if prompt_bool("Are you sure?"):
-        db.drop_all()
-        print('Dropped the database')
+    db.drop_all()
+    print('Dropped the database')
+
+
+@manager.command
+def recreatedb():
+    dropdb()
+    initdb()
+
 
 @manager.command
 def rundebug():
     '''Runs the Flask in debug mode i.e. app.run(debug=True)'''
     app.run(debug=True)
+
 
 if __name__ == '__main__':
     manager.run()
