@@ -107,5 +107,26 @@ class User(db.Model):
 between User and Bookmark objects. Now each Bookmark has a user object and each User has a list of bookmarks
 
 http://flask-sqlalchemy.pocoo.org/2.1/
+http://docs.sqlalchemy.org/en/latest/
+
+############
+## CHAPTER 6
+Flask-Login
+@login_required
+
+pip install flask-login
+# Configure authentication
+login_manager = LoginManager()
+login_manager.session_protection = "strong"
+login_manager.login_view = "login"
+login_manager.init_app(app)
+
+Declare a user_loader, to tell flask how to retreive a user by id, which is stored in http session as a coockie.
+This is done with the help of @login_manager.user_loader decorator, the User class should either provide a set 
+of methods or should be inherited from the UserMixin class.
+@login_manager.user_loader
+def load_user(userid):
+    return User.query.get(int(userid))
+The @login_required decorator should be applied to all views which require authentication
 
 
