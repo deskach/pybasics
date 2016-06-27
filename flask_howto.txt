@@ -128,5 +128,11 @@ of methods or should be inherited from the UserMixin class.
 def load_user(userid):
     return User.query.get(int(userid))
 The @login_required decorator should be applied to all views which require authentication
+current_user variable holds the details of the logged in user. Optional remember flag could
+be provided to save the user in the coockie.
+Inside the view current_user.is_authenticated() method can be used to check for auth.
 
+python manage.py db init
+python manage.py db migrate
+python manage.py db upgrad
 
