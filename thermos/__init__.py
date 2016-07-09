@@ -15,6 +15,7 @@ app.config['SECRET_KEY'] = '~t\x86\xc9\x1ew\x8bOcX\x85O\xb6\xa2\x11kL\xd1\xce\x7
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'thermos.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 app.config['DEBUG'] = True
+app.config['DEBUG_TB_INTERCEPT_REDIRECTS'] = False
 db = SQLAlchemy(app)
 
 # Configure authentication
@@ -24,7 +25,8 @@ login_manager.login_view = "login"
 login_manager.init_app(app)
 
 #create debug toolbar
-toolbar = DebugToolbarExtension(app)
+app.debug = True
+#toolbar = DebugToolbarExtension(app)
 
 # for displaying timestamps
 moment = Moment(app)
